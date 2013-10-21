@@ -1,0 +1,63 @@
+﻿/* Colorculator by usw-usf.de. V00.01 */
+/* Folded Corner Effect inspired by Nicolas Gallagher http://nicolasgallagher.com/pure-css-folded-corner-effect/ */
+
+* { margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; }
+body { font: 100%/1.5 "Helvetica Neue" , Helvetica, Arial, Sans-Serif; background: #333; -webkit-user-select: none; display: -moz-box; -moz-box-orient: horizontal; -moz-box-pack: center; -moz-box-align: center; display: -webkit-box; -webkit-box-orient: horizontal; -webkit-box-pack: center; -webkit-box-align: center; display: box; box-orient: horizontal; box-pack: center; box-align: center; -webkit-box-flex: 1; -moz-box-flex: 1; box-flex: 1; max-width: 200em; }
+
+h1 { font-size: 0.625em; line-height: 2em; color: #e0e0e0; } /* 10px / 16px */
+b { color: #aaa; font-weight: normal; font-size: 1em; }
+i { font-weight: normal; font-style: italic; font-size: 0.71875em; color: #efefef; }
+em { font-style: normal; }
+
+.label { float: left; margin-left: 5px; text-transform: uppercase; color: #666; }
+.last { margin-right: 0px !important; }
+.number { background-color: #666 !important; }
+
+#container { margin: 0 auto; width: 13.75em; } /* 220px / 16px */
+#claim { font-weight: bold; font-style: italic; font-size: 0.71875em; color: #F39; }
+#claim a { color: #01DFA5; text-decoration: none; }
+
+#hexpad, #output { margin: 0; padding: 0; list-style: none; }
+#value, #rgb-value, #hsl-value { font-size: 1.125em; color: #F39; padding-right: 1em; font-weight: 200; } /* 18px / 16px */ 
+#hexpad li, .outputfield { margin: 0 0.3125em 0.3125em 0; -moz-border-radius: 0.3125em; -webkit-border-radius: 0.3125em; text-transform: uppercase; } /* 5px /16px */ 
+#hexpad li { float: left; text-align: center; background: #000; color: #fff; -webkit-tap-highlight-color: #F39; height: 3.125em; width: 3.125em; line-height: 3.125em; } /* 50px / 16px */
+#hexpad li:hover { background: #01DFA5 !important; color: #fff !important; cursor: pointer; }
+
+#hex { position: relative; }
+/* flipped corner */
+#hex:before { content: ""; position: absolute; top: 0; right: 0; border-style: solid; background: #eee; -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2); -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2); box-shadow: 0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2); display: block; width: 0; border-width: 8px; border-color: #333 #333 transparent transparent; -webkit-border-bottom-left-radius: 5px; -moz-border-radius: 0 0 0 5px; border-radius: 0 0 0 5px; }
+
+.outputfield { height: 3.125em; line-height: 3.125em; background: #fff; text-align: right; }
+#preview { text-align: center; cursor: pointer; text-transform: uppercase; }
+
+#pleasenote { position: fixed; bottom: 10px; left: 0; background-color: #f39; background: #f39; color: #fff; font-size: 1em; width: 100%; padding: 10px 5px 5px 5px; text-align: center; display: none; border-bottom: 1px solid #f39; }
+#pleasenote:after { content: ""; border: solid 10px transparent; border-top-color: #f39; border-bottom: 0; width: 0; height: 0; overflow: hidden; display: block; position: relative; bottom: -16px; margin: auto; }
+
+#online { width: 1.25em; margin-left: 0.125em; font-size: 1.25em; } /* 20px /16px & 2px / 16px */
+#online span { width: 0.1875em; margin-right: 0.125em; display: inline-block; } /* 3px /16px & 2px / 16px */
+.line4 { height: 0.8125em; } /* 13px / 16px */
+.line3 { height: 0.625em; } /* 10px / 16px */
+.line2 { height: 0.4375em; } /* 7px / 16px */
+.line1 { height: 0.25em; } /* 4px / 16px */
+#online.online span { background: #eee; }
+#online.offline span { background: #eee; }
+#online.offline span { height: 0.125em !important; }
+
+/* Smartphone landscape or portrait */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+	#container { width: 13.75em; } /* 220px / 16px */ 
+	#output { width: 13.75em; }
+	#hexpad { width: 13.75em; }
+	#hexpad li { width: 3.125em; } /* 50px / 16px */
+	#hexpad li, .outputfield { height: 3.125em; line-height: 3.125em; }
+}
+
+/* 320px x 480px */
+@media only screen and (max-width: 320px) {
+	#container { width: 13.75em; } /* 220px / 16px */
+	#output { width: 13.75em; }
+	#hexpad { width: 13.75em; }
+	#hexpad li { width: 3.125em; } /* 50px / 16px */
+	#hexpad li, .outputfield { height: 3.125em; line-height: 3.125em; }
+}

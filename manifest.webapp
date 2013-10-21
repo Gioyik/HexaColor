@@ -1,0 +1,16 @@
+{
+  "version": "1.0",
+  "name": "HexaColor",
+  "description": "An app to remix and get color codes.",
+  "launch_path": "/index.html",
+  "installs_allowed_from": ["*"],
+  "default_locale": "en",
+  "orientation": ["portrait","landscape-primary"],
+  "developer": {
+    "name": "Giovanny Andres Gongora Granada",
+    "url": "http://github.com/Gioyik"
+  },
+  "icons": {
+    "128": "/img/128.png"
+  }
+}
